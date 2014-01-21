@@ -37,6 +37,20 @@ module.exports = function(grunt) {
       }
     }
   };
+  conf.copy = {
+    main: {
+      files: [
+        // copies all files from bootstrap-stylus/fonts in public
+        {
+          expand: true,
+          cwd: path.join(BOWER_PATH, 'bootstrap-stylus', 'fonts') ,
+          src: ['*'],
+          //src: [ 'public/bowerfiles/bootstrap-stylus/fonts/*'],
+          dest: 'public/fonts/',
+        }
+      ]
+    }
+  };
 
 
   grunt.initConfig(conf);
@@ -46,6 +60,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('default', ['concat', 'browserify' ]);
 
