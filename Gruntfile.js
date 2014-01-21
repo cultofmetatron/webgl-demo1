@@ -5,10 +5,9 @@ module.exports = function(grunt) {
   conf.browserify = {
     files: {
       'application.js': [
-        
+        'assets/scripts/**/*.js'
       ]
-    },
-    options : {}
+    }
   };
 
 
