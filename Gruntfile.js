@@ -4,12 +4,14 @@ module.exports = function(grunt) {
   conf.pkg = grunt.file.readJSON('package.json');
 
   conf.browserify = {
-    files: {
-      'public/javascripts/build.js': [
-        //files to be added for browserify
-        'assets/scripts/*.js',
-        'assets/scripts/**/*.js'
-      ]
+    dist: {
+      files: {
+        'public/javascripts/build.js': [
+          //files to be added for browserify
+          'assets/scripts/*.js',
+          'assets/scripts/**/*.js'
+        ]
+      }
     }
   };
   conf.concat = {
