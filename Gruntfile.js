@@ -7,6 +7,7 @@ module.exports = function(grunt) {
     files: {
       'public/javascripts/build.js': [
         //files to be added for browserify
+        'assets/scripts/*.js',
         'assets/scripts/**/*.js'
       ]
     }
@@ -24,7 +25,7 @@ module.exports = function(grunt) {
   };
 
 
-  grunt.initConfig(configs);
+  grunt.initConfig(conf);
 
   
 
