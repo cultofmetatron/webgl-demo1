@@ -11,6 +11,9 @@ module.exports = function(grunt) {
           'assets/scripts/*.js',
           'assets/scripts/**/*.js'
         ]
+      },
+      options: {
+        debug: true
       }
     }
   };
