@@ -28,13 +28,20 @@ module.exports = function(grunt) {
       dest: 'public/javascripts/dependencies.js',
     },
   };
+  conf.stylus = {
+    compile: {
+      options: {
+        paths: []
+      }
+    }
+  };
 
 
   grunt.initConfig(conf);
 
   
 
-
+  grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-concat');
 

@@ -1,1 +1,7 @@
-{}
+{
+  "name": "spoon.js-sample-app",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap-stylus": "~3.0.0"
+  }
+}
