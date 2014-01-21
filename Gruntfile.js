@@ -1,4 +1,6 @@
 module.exports = function(grunt) {
+  var path = require('path');
+  var BOWER_PATH = path.join(__dirname, 'public', 'bowerfiles');
 
   var conf = {};
   conf.pkg = grunt.file.readJSON('package.json');
@@ -30,8 +32,8 @@ module.exports = function(grunt) {
   };
   conf.stylus = {
     compile: {
-      options: {
-        paths: []
+      files: {
+        'public/stylesheets/bootstrap.css':path.join(BOWER_PATH, 'bootstrap-stylus', 'stylus', 'bootstrap.styl')
       }
     }
   };
