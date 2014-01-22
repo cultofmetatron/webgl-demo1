@@ -5,14 +5,15 @@ module.exports = function(grunt) {
   var conf = {};
   conf.pkg = grunt.file.readJSON('package.json');
 
-  var builderify = function(file) {
-    return [
+  var builderify = function(file, assets) {
+    var files = [
       //files to be added for browserify
       'assets/scripts/shared/*.js',
       'assets/scripts/shared/**/*.js',
       'assets/scripts/' + file + '/*.js',
       'assets/scripts/' + file + '/**/*.js'
     ];
+    return (assets) ? assets.concat(files) : files;
   };
   conf.browserify = {
     dist: {
@@ -57,12 +58,26 @@ module.exports = function(grunt) {
       ]
     }
   };
+  conf.nodemon = {
+    dev: {
+      script: 'app.js'
+    }
+  };
+  conf.watch = {
+    scripts: {
+      files: ['app.js', 'server/**/*.js'],
+      tasks: ['nodemon'],
+      options: {
+        spawn: false,
+      },
+    },
+  };
 
 
   grunt.initConfig(conf);
 
-  
-
+  grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-concat');
