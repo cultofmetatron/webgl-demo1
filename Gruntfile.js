@@ -5,17 +5,23 @@ module.exports = function(grunt) {
   var conf = {};
   conf.pkg = grunt.file.readJSON('package.json');
 
+  var builderify = function(file) {
+    return [
+      //files to be added for browserify
+      'assets/scripts/shared/*.js',
+      'assets/scripts/shared/**/*.js',
+      'assets/scripts/' + file + '/*.js',
+      'assets/scripts/' + file + '/**/*.js'
+    ];
+  };
   conf.browserify = {
     dist: {
       files: {
-        'public/javascripts/build.js': [
-          //files to be added for browserify
-          'assets/scripts/*.js',
-          'assets/scripts/**/*.js'
-        ]
+        //each key can be a diffrent build file
+        'public/javascripts/main.js': builderify('main')
       },
       options: {
-        debug: true
+        debug: true,
       }
     }
   };
