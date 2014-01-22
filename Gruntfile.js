@@ -64,13 +64,23 @@ module.exports = function(grunt) {
     }
   };
   conf.watch = {
-    scripts: {
+    server: {
       files: ['app.js', 'server/**/*.js'],
       tasks: ['nodemon'],
       options: {
         spawn: false,
       },
     },
+    client: {
+      files: ['assets/scripts/**/*.js'],
+      tasks: ['browserify', 'copy', 'concat', 'stylus'],
+      options: {
+        spawn: false
+      }
+    }
+  };
+  conf.concurrent = {
+    target1: ['watch:client', 'nodemon']
   };
 
 
@@ -82,8 +92,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-concurrent');
 
-  grunt.registerTask('default', ['concat', 'browserify' ]);
-
+  grunt.registerTask('default', ['browserify', 'copy', 'concat', 'stylus']);
+  grunt.registerTask('server', ['concurrent']);
 
 };
