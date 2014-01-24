@@ -15,3 +15,21 @@ var initWebGL = function(canvas) {
 };
 
 module.exports.initWebGL = initWebGL;
+
+
+var getShader = function(shaderName) {
+  return Promise.cast($.ajax(
+    '/shaders/' + shaderName + '.js',
+    {
+    method: 'GET',
+    dataType: 'text',
+  }));
+};
+
+module.exports.getShader = getShader;
+
+
+
+
+
+

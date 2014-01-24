@@ -33,7 +33,8 @@ module.exports = function(grunt) {
     dist: {
       src: [
         'public/bowerfiles/jquery/jquery.js',
-        'public/bowerfiles/bootstrap/dist/js/bootstrap.js'
+        'public/bowerfiles/bootstrap/dist/js/bootstrap.js',
+        'public/bowerfiles/bluebird/js/browser/bluebird.js'
         
       ],
       dest: 'public/javascripts/dependencies.js',
