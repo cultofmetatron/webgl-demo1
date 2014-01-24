@@ -25,9 +25,16 @@ var getShader = function(shaderName) {
     dataType: 'text',
   }));
 };
+var getShaders = function() {
+  var shaders = Array.prototype.slice.call(arguments);
+  var shadersP = shaders.map(function(shader) {
+    return getShader(shader);
+  });
+  return Promise.all(shadersP);
+};
 
-module.exports.getShader = getShader;
-
+module.exports.getShader  = getShader;
+module.exports.getShaders = getShaders;
 
 
 

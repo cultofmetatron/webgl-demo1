@@ -7,13 +7,11 @@ gl.clear(gl.COLOR_BUFFER_BIT);
 
 var fs = require('fs');
 
-var vshaderP = glTools.getShader('vshader');
-var fshaderP = glTools.getShader('fshader');
-Promise.all([vshaderP, fshaderP]).spread(function(vshaderS, fshaderS) {
-  console.log(vshaderS);
-  console.log(fshaderS);
-
-});
+glTools.getShaders('vshader', 'fshader')
+  .spread(function(vshaderS, fshaderS) {
+    console.log(vshaderS);
+    console.log(fshaderS);
+  });
 
 
 /*
