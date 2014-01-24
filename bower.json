@@ -2,6 +2,8 @@
   "name": "spoon.js-sample-app",
   "version": "0.0.1",
   "dependencies": {
-    "bootstrap-stylus": "~3.0.0"
+    "bootstrap-stylus": "~3.0.0",
+    "jquery": "~2.0.3",
+    "bootstrap": "~3.0.3"
   }
 }
