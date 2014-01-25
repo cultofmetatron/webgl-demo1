@@ -1,4 +1,4 @@
-web-boilerplate
+webgl-demo
 ===============
 
-minimal express boilerplate using grunt, express, jade, stylus and browserify
+evolving webgl demo as I learn webgl, so far it just puts a dot on a screen
